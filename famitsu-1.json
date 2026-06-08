@@ -1,0 +1,15 @@
+{
+    "id": "FAM-19860620",
+    "magazine": {
+      "name_ja": "ファミコン通信",
+      "name_romaji": "Famicom Tsūshin",
+      "name_current": "Famitsu",
+      "sameAs": "https://www.wikidata.org/wiki/Q591573"
+    },
+    "issue_info": {
+      "number": 1,
+      "release_date": "1986-06-20",
+      "cover_subject": "Be-Bop High School"
+    },
+    "content": []
+  }

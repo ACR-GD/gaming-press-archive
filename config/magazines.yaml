@@ -1,0 +1,237 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Magazine Archive — Magazine Profiles
+# ──────────────────────────────────────────────────────────────────────────────
+#
+# Add a new magazine by creating a new entry here.
+# The pipeline reads this file to adapt OCR language settings,
+# classification prompts, and extraction templates.
+# ──────────────────────────────────────────────────────────────────────────────
+
+magazines:
+
+  # ── Japanese Magazines ──────────────────────────────────────────────────────
+
+  famitsu:
+    name_ja: ファミコン通信        # Original name (Famicom Tsūshin until 1995)
+    name_current_ja: ファミ通
+    name_en: Famitsu
+    country: JP
+    language: ja
+    script: vertical_ja            # Predominantly tategumi (vertical) columns
+    publisher: ASCII / Enterbrain / Kadokawa
+    started: 1986-06-20
+    ended: null                    # Still running
+    ocr_languages: [ja, en]        # English for game titles/scores embedded in text
+    review_format: cross_4x10      # 4 reviewers, each scoring /10, total /40
+    score_fields: [score_1, score_2, score_3, score_4, score_total]
+    score_max: 40
+    typical_sections:
+      - cross_review               # The famous 4-reviewer scoring section
+      - new_games                  # New release previews
+      - letters                    # Reader mail (Famitsu-cho)
+      - charts                     # Sales charts
+      - ads
+    notes: >
+      Issues 1–632 published as "Famicom Tsūshin" (ファミコン通信).
+      Renamed "Famitsu" (ファミ通) from issue 633 (June 1995).
+      Cross Review format established around issue 10.
+
+  dengeki:
+    name_ja: 電撃PlayStation
+    name_en: Dengeki PlayStation
+    country: JP
+    language: ja
+    script: mixed_ja               # Mix of vertical and horizontal
+    publisher: ASCII Media Works / Kadokawa
+    started: 1994-04-08
+    ended: 2019-07-04
+    ocr_languages: [ja, en]
+    review_format: percentage      # Scores as percentages (e.g. 85%)
+    score_max: 100
+    typical_sections:
+      - reviews
+      - previews
+      - interviews
+      - charts
+      - ads
+
+  beep:
+    name_ja: Beep!
+    name_en: "Beep!"
+    country: JP
+    language: ja
+    script: mixed_ja
+    publisher: Softbank
+    started: 1984-09-01
+    ended: 1992-04-01
+    ocr_languages: [ja, en]
+    review_format: mixed           # Varied scoring across eras
+    score_max: null
+    typical_sections:
+      - reviews
+      - previews
+      - features
+      - ads
+    notes: >
+      Transformed into Beep! MegaDrive in 1989, focusing on Sega hardware.
+
+  megadrive_fan:
+    name_ja: メガドライブFAN
+    name_en: Mega Drive Fan
+    country: JP
+    language: ja
+    script: mixed_ja
+    publisher: Tokuma Shoten
+    started: 1989-07-01
+    ended: 1996-02-01
+    ocr_languages: [ja, en]
+    review_format: percentage
+    score_max: 100
+
+  # ── Anglophone Magazines ────────────────────────────────────────────────────
+
+  edge:
+    name_en: Edge
+    country: UK
+    language: en
+    script: standard_en
+    publisher: Future Publishing
+    started: 1993-10-01
+    ended: null
+    ocr_languages: [en]
+    review_format: scale_10        # /10, single reviewer
+    score_max: 10
+    typical_sections:
+      - reviews
+      - previews
+      - features
+      - interviews
+      - culture
+      - ads
+
+  mean_machines:
+    name_en: Mean Machines
+    country: UK
+    language: en
+    script: standard_en
+    publisher: EMAP
+    started: 1990-10-01
+    ended: 1996-01-01
+    ocr_languages: [en]
+    review_format: percentage
+    score_max: 100
+
+  cvg:
+    name_en: Computer and Video Games (CVG)
+    country: UK
+    language: en
+    script: standard_en
+    publisher: EMAP / Future
+    started: 1981-11-01
+    ended: 2014-05-16
+    ocr_languages: [en]
+    review_format: percentage
+    score_max: 100
+
+  egm:
+    name_en: Electronic Gaming Monthly
+    country: US
+    language: en
+    script: standard_en
+    publisher: Sendai / Ziff Davis
+    started: 1989-04-01
+    ended: 2009-01-01
+    ocr_languages: [en]
+    review_format: multi_3x10     # 3 reviewers, each /10
+    score_max: 10
+
+  # ── Francophone Magazines ───────────────────────────────────────────────────
+
+  joystick:
+    name_fr: Joystick
+    name_en: Joystick
+    country: FR
+    language: fr
+    script: standard_fr
+    publisher: Infogrames Press / Future France
+    started: 1989-09-01
+    ended: 2011-01-01
+    ocr_languages: [fr, en]
+    review_format: percentage
+    score_max: 100
+    typical_sections:
+      - tests
+      - previews
+      - interviews
+      - dossiers
+      - courrier
+      - publicites
+
+  consoles_plus:
+    name_fr: Consoles +
+    name_en: Consoles Plus
+    country: FR
+    language: fr
+    script: standard_fr
+    publisher: M.E.R.7
+    started: 1991-09-01
+    ended: 2011-06-01
+    ocr_languages: [fr, en]
+    review_format: percentage
+    score_max: 100
+
+  player_one:
+    name_fr: Player One
+    name_en: Player One
+    country: FR
+    language: fr
+    script: standard_fr
+    publisher: Média Système Édition
+    started: 1990-10-01
+    ended: 2002-01-01
+    ocr_languages: [fr, en]
+    review_format: percentage
+    score_max: 100
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Platform Normalization
+# Maps various names/abbreviations to a canonical identifier
+# ──────────────────────────────────────────────────────────────────────────────
+
+platforms:
+  famicom:
+    canonical: famicom
+    names: [FC, ファミコン, Famicom, NES, Nintendo Entertainment System, Famicom Disk System, FDS, ディスクシステム]
+  super_famicom:
+    canonical: super_famicom
+    names: [SFC, スーファミ, Super Famicom, SNES, Super Nintendo, Super NES]
+  mega_drive:
+    canonical: mega_drive
+    names: [MD, メガドライブ, Mega Drive, Genesis, Sega Genesis, Sega Mega Drive]
+  pc_engine:
+    canonical: pc_engine
+    names: [PCE, PC Engine, PCエンジン, TurboGrafx-16, TG-16, CD-ROM²]
+  game_boy:
+    canonical: game_boy
+    names: [GB, ゲームボーイ, Game Boy, GameBoy]
+  msx:
+    canonical: msx
+    names: [MSX, MSX2, MSX2+]
+  pc88:
+    canonical: pc88
+    names: [PC-8801, PC88, PC-88, PC8801]
+  x68000:
+    canonical: x68000
+    names: [X68000, X68, シャープX68000]
+  fm_towns:
+    canonical: fm_towns
+    names: [FM TOWNS, FMタウンズ, FM Towns]
+  playstation:
+    canonical: playstation
+    names: [PS, PS1, PlayStation, プレイステーション, PSX]
+  saturn:
+    canonical: saturn
+    names: [SS, Sega Saturn, セガサターン, Saturn]
+  nintendo_64:
+    canonical: nintendo_64
+    names: [N64, Nintendo 64, ニンテンドウ64, Nintendo64]
