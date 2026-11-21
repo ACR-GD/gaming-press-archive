@@ -212,7 +212,7 @@ CREATE VIRTUAL TABLE IF NOT EXISTS fts_reviews USING fts5(
     reviewer_names,
     content=reviews,
     content_rowid=id,
-    tokenize="unicode61"
+    tokenize="trigram"  -- trigram: Japanese has no spaces to split words on
 );
 
 CREATE VIRTUAL TABLE IF NOT EXISTS fts_articles USING fts5(
@@ -224,14 +224,14 @@ CREATE VIRTUAL TABLE IF NOT EXISTS fts_articles USING fts5(
     people_mentioned,
     content=articles,
     content_rowid=id,
-    tokenize="unicode61"
+    tokenize="trigram"  -- trigram: Japanese has no spaces to split words on
 );
 
 CREATE VIRTUAL TABLE IF NOT EXISTS fts_pages USING fts5(
     ocr_full_text,
     content=pages,
     content_rowid=id,
-    tokenize="unicode61"
+    tokenize="trigram"  -- trigram: Japanese has no spaces to split words on
 );
 
 -- ── Triggers to keep FTS in sync ───────────────────────────
